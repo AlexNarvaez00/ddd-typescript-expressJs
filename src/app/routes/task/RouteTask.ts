@@ -1,7 +1,7 @@
+import { DomainError } from '@/context/shared/domain/error/DomainError'
+import { Task } from '@/context/task/domain/Task'
 import { Router } from 'express'
 import { ResponseHandler } from '../shared/ResponseHandler'
-import { Task } from '../../../context/task/domain/Task'
-import { DomainError } from '../../../context/shared/domain/error/DomainError'
 
 const routeTask = Router()
 
