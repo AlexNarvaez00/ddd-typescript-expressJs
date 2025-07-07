@@ -1,5 +1,6 @@
 import { Entity } from '../../shared/domain/Entity'
 import { Uuid } from '../../shared/domain/value-object/uuid/Uuid'
+import { TaskAuthors } from './TaskAuthors'
 import { TaskContent } from './TaskContent'
 import { TaskPrimitives } from './TaskPrimitives'
 import { TaskPriority } from './TaskPriority'
@@ -27,6 +28,10 @@ export class Task extends Entity<TaskProps> {
         return this.props.priority.value
     }
 
+    public get authors(): string[] {
+        return this.props.authors.value
+    }
+
     public static create(props: TaskProps): Task {
         return new Task(props)
     }
@@ -36,12 +41,14 @@ export class Task extends Entity<TaskProps> {
         title,
         content,
         priority,
+        authors,
     }: TaskPrimitives): Task {
         return new Task({
             id: id ? new Uuid(id) : Uuid.random(),
             title: new TaskTitle(title),
             content: new TaskContent(content),
             priority: new TaskPriority(priority),
+            authors: new TaskAuthors(authors),
         })
     }
 
@@ -51,6 +58,7 @@ export class Task extends Entity<TaskProps> {
             title: this.title,
             content: this.content,
             priority: this.priority,
+            authors: this.authors,
         }
     }
 }

@@ -13,6 +13,7 @@ routeTask.get('/api/v1/task', (req, res) => {
                     title: 'Task 1',
                     content: 'Task 1 content',
                     priority: 1,
+                    authors: ['author 1'],
                 }).toPrimitives(),
             ],
             res
