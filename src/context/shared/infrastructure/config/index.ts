@@ -1,5 +1,5 @@
 export const config = {
-  express: {
-    port: process.env.EXPRESS_PORT || 3000,
-  },
-};
+    express: {
+        port: process.env.EXPRESS_PORT || 3000,
+    },
+}

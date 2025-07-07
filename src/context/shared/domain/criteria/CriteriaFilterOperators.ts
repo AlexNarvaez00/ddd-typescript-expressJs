@@ -1,5 +1,5 @@
 export enum CriteriaFilterOperators {
-    EQ = "=",
-    GT = "GT",
-    LT = "LT",
+    EQ = '=',
+    GT = 'GT',
+    LT = 'LT',
 }
