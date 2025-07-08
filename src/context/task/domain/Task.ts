@@ -1,5 +1,5 @@
-import { Entity } from '@/context/shared/domain/Entity'
-import { Uuid } from '@/context/shared/domain/value-object/uuid/Uuid'
+import { Entity } from '../../shared/domain/Entity'
+import { Uuid } from '../../shared/domain/value-object/uuid/Uuid'
 import { TaskAuthors } from './TaskAuthors'
 import { TaskContent } from './TaskContent'
 import { TaskPrimitives } from './TaskPrimitives'
