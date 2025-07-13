@@ -1,5 +1,5 @@
 import { expressjwt } from 'express-jwt'
-import { config } from '../../../context/shared/infrastructure/config'
+import { config } from '../../../../context/shared/infrastructure/config'
 
 export const auth = expressjwt({
     secret: config.express.jwtToken as string,

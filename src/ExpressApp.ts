@@ -1,16 +1,21 @@
-import express, { json } from 'express'
+import express, { json, Router } from 'express'
+import { errorHandler } from './app/routes/shared/ErrorHandler'
+import { auth } from './app/routes/v1/auth/AuthMiddleware'
+import { register as authRegister } from './app/routes/v1/auth/RouteAuthLogIn'
+import { register as taskRegister } from './app/routes/v1/task/RouteTask'
 import { config } from './context/shared/infrastructure/config'
-import { routeIndex } from './app/routes/index/RouteIndex'
-import { routeTask } from './app/routes/task/RouteTask'
-import { routeAuth } from './app/routes/auth/RouteLogin'
-import { errorHandler } from './app/routes/error/ErrorHandler'
 
 const app = express()
 app.use(json())
 app.use(express.urlencoded({ extended: true }))
-app.use(routeAuth)
-app.use(routeIndex)
-app.use(routeTask)
+
+const router = Router()
+
+authRegister(router)
+router.use(auth)
+taskRegister(router)
+
+app.use(router)
 app.use(errorHandler)
 
 app.listen(config.express.port, () => {
