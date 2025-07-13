@@ -1,6 +1,7 @@
+import { ToPrimitives } from './ToPrimitives'
 import { Uuid } from './value-object/uuid/Uuid'
 
-export class Entity<Props> {
+export abstract class Entity<Props> {
     public readonly _id: Uuid
 
     constructor(
@@ -9,4 +10,6 @@ export class Entity<Props> {
     ) {
         this._id = id ?? Uuid.random()
     }
+
+    abstract toPrimitives(): ToPrimitives<Props>
 }
