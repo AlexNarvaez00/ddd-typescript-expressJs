@@ -1,9 +1,9 @@
 import express, { json, Router } from 'express'
-import { errorHandler } from './app/routes/shared/ErrorHandler'
-import { auth } from './app/routes/v1/auth/AuthMiddleware'
-import { register as authRegister } from './app/routes/v1/auth/RouteAuthLogIn'
-import { register as taskRegister } from './app/routes/v1/task/RouteTask'
+import { errorHandler } from './app/express/v1/shared/handler/ErrorHandler'
+import { register as authRegister } from './app/express/v1/auth/routes/RouteAuthLogIn'
+import { register as taskRegister } from './app/express/v1/task/routes/task.route'
 import { config } from './context/shared/infrastructure/config'
+import { auth } from './app/express/v1/shared/middleware/AuthMiddleware'
 
 const app = express()
 app.use(json())

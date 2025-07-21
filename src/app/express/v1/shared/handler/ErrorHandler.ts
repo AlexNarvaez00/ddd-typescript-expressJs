@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { DomainError } from '../../../context/shared/domain/error/DomainError'
-import { ResponseHandler } from '../shared/ResponseHandler'
+import { DomainError } from '../../../../../context/shared/domain/error/DomainError'
+import { ResponseHandler } from './ResponseHandler'
 
 export const errorHandler = (
     error: Error,

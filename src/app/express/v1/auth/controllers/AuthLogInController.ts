@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import jwt, { Algorithm } from 'jsonwebtoken'
-import { Controller } from '../../Controller'
+import { Controller } from '../../shared/controller/Controller'
 
 interface AuthLogInControllerRequestBody {
     email: string

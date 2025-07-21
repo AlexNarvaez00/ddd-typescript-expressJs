@@ -1,8 +1,8 @@
 import { expressjwt } from 'express-jwt'
-import { config } from '../../../../context/shared/infrastructure/config'
+import { config } from '../../../../../context/shared/infrastructure/config'
 
 export const auth = expressjwt({
-    secret: config.express.jwtToken as string,
+    secret: config.express.jwtTokenSecret as string,
     algorithms: ['HS256'],
     getToken: function (req) {
         const {

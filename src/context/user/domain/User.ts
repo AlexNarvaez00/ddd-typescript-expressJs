@@ -1,7 +1,7 @@
-import { Entity } from '@/context/shared/domain/Entity'
-import { Uuid } from '@/context/shared/domain/value-object/uuid/Uuid'
+import { Entity } from '../../shared/domain/Entity'
 import { EmailValueObject } from '../../shared/domain/value-object/email/EmailValueObject'
-import { StringValueObject } from '@/context/shared/domain/value-object/string/StringValueObject'
+import { StringValueObject } from '../../shared/domain/value-object/string/StringValueObject'
+import { Uuid } from '../../shared/domain/value-object/uuid/Uuid'
 import { UserPrimitives } from './UserPrimitives'
 import { UserProps } from './UserProps'
 
@@ -24,6 +24,14 @@ export class User extends Entity<UserProps> {
 
     public get urlProfile(): string | undefined {
         return this.props.urlProfile?.value
+    }
+
+    public updatePassword(password: StringValueObject) {
+        this.props.password = password
+    }
+
+    public updateUrlProfile(urlProfile: StringValueObject) {
+        this.props.urlProfile = urlProfile
     }
 
     public static fromPrimitives({
