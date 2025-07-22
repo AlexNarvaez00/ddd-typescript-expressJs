@@ -1,10 +1,10 @@
-import { CriteriaFilters } from './CriteriaFilters'
-import { CriteriaOrder } from './CriteriaOrder'
+import { Filters } from './Filters'
+import { Order } from './Order'
 
 export class Criteria {
     constructor(
-        public readonly filters: CriteriaFilters,
-        public readonly order: CriteriaOrder,
+        public readonly filters: Filters,
+        public readonly order: Order,
         public readonly skip?: number,
         public readonly limit?: number
     ) {}

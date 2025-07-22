@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import { Criteria } from '../../../../../context/shared/domain/criteria/Criteria'
-import { CriteriaFilters } from '../../../../../context/shared/domain/criteria/CriteriaFilters'
-import { CriteriaOrder } from '../../../../../context/shared/domain/criteria/CriteriaOrder'
+import { Filters } from '../../../../../context/shared/domain/criteria/Filters'
+import { Order } from '../../../../../context/shared/domain/criteria/Order'
 import { TaskMatch } from '../../../../../context/task/application/TaskMatch'
 import { TaskRepository } from '../../../../../context/task/domain/TaskRepository'
 import { GetController } from '../../shared/controller/GetController'
@@ -21,7 +21,7 @@ export class TaskController implements GetController {
         const { ok } = ResponseHandler
         const taskMatch = new TaskMatch(this.taskRepository)
         const result = await taskMatch.run(
-            new Criteria(CriteriaFilters.none(), CriteriaOrder.none())
+            new Criteria(Filters.none(), Order.none())
         )
 
         try {
